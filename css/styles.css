@@ -1,0 +1,61 @@
+:root{
+    --hacker-text-color:rgb(63, 196, 63);
+}
+
+html, body {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+p {
+    white-space: pre;
+}
+body {
+    background-image: url('../static/kali-linux-wallpaper-v1.png');
+    background-size: 100% 100%; 
+    color:var(--hacker-text-color);
+    font-weight: 500;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+footer {
+    border-top:    2px solid  var(--hacker-text-color);
+    background-color: #00000050;
+    padding: 15px;
+}
+main {
+    padding: 25px;
+}
+.shown {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: rgb(27, 27, 27);
+    border-radius: 8px;
+    color: var(--hacker-text-color);
+    font-weight: bold;
+    border:1px solid rgb(54, 54, 54);
+    padding: 5px 8px 5px 8px ;
+}
+
+#hideWiki-btn {
+    background-color: transparent;
+    border: none;
+    color:var(--hacker-text-color);
+    font-size: x-large;
+    font-weight: bold;
+    height: 20px;
+    cursor: pointer;
+}
