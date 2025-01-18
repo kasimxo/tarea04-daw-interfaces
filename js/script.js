@@ -1,7 +1,7 @@
 const fullText = `DEFINE_STATIC_PERCPU_RWSEM(bp_cpuinfo_sem);
-\t\t\tstatic inline struct mutex *get_task_bps_mutex(struct perf_event *bp)
+static inline struct mutex *get_task_bps_mutex(struct perf_event *bp)
 {
-	\t\t\tstruct task_struct *tsk = bp->hw.target;
+	struct task_struct *tsk = bp->hw.target;
 
 	return tsk ? &tsk->perf_event_mutex : NULL;
 }
@@ -75,26 +75,60 @@ let text = "";
 let index = 0;
 
 document.addEventListener("keypress", function (event) {
-    let length = Math.round(Math.random() * 5);
-    index += length;
-    let hackerContent = document.getElementById("hacker-content");
-    hackerContent.innerText = fullText.substring(0, index);
-    console.log(fullText.substring(0, index));
+	let length = Math.round(Math.random() * 5);
+	index += length;
+	let hackerContent = document.getElementById("hacker-content");
+	hackerContent.innerText = fullText.substring(0, index);
+	activateAudio();
 });
 
 
 function showWiki() {
-    let hackerContent = document.getElementById("hacker-content");
-    let wiki = document.getElementById("wiki");
-    hackerContent.classList.add("hidden");
-    wiki.classList.remove("hidden");
-    wiki.classList.add("shown");
+	activateAudio();
+	hideCamera();
+	let wiki = document.getElementById("wiki");
+	wiki.classList.remove("hidden");
+	wiki.classList.add("shown");
+
 }
 
 function hideWiki() {
-    let hackerContent = document.getElementById("hacker-content");
-    let wiki = document.getElementById("wiki");
-    hackerContent.classList.remove("hidden");
-    wiki.classList.add("hidden");
-    wiki.classList.remove("shown");
+	let wiki = document.getElementById("wiki");
+	wiki.classList.remove("shown");
+	wiki.classList.add("hidden");
+}
+
+function showCamera() {
+	activateAudio();
+	hideWiki();
+	let camera = document.getElementById("camera");
+	camera.classList.remove("hidden");
+	camera.classList.add("shown");
+}
+
+function hideCamera() {
+	let camera = document.getElementById("camera");
+	camera.classList.remove("shown");
+	camera.classList.add("hidden");
+}
+
+document.getElementById('camera-video').addEventListener('ended', myHandler, false);
+
+function myHandler(e) {
+	var videoFile = 'static/empty-room.mp4';
+	document.getElementById('camera-video').setAttribute('src', videoFile);
+	document.getElementById('camera-video').setAttribute("loop", true);
+	document.getElementById('camera-video').load();
+	document.getElementById('camera-video').removeEventListener('ended', myHandler, false)
+}
+
+function activateAudio() {
+
+	let audio = document.getElementById('hacker-audio');
+	if (audio.getAttribute('muted') !== null) {
+		audio.muted = false;
+		audio.removeAttribute('muted');
+		audio.volume = 0.1;
+		audio.play();
+	}
 }

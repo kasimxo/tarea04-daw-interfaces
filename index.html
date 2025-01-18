@@ -2,7 +2,7 @@
 <html>
     <head>
         <link  rel="stylesheet" href="css/styles.css" />
-        <script src="js/script.js"></script> 
+        
         <title>abanosl</title>
     </head>
     <body>
@@ -14,13 +14,34 @@
                     <br>Específicamente, se ha empleado la versión 1.
                     <br>Las imágenes alojadas en ese repositorio cuentan con una licencia GNU General Public License v3.0, que permite su uso comercial.
                     <br>Para más información sobre este tipo de licencia, puedes visitar el siguiente enlace: <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text">GNU General Public License v3.0</a>
+                    
+                    <br>El vídeo ha sido extraido del siguiente <a href="https://mixkit.co/free-stock-video/camera-recording-hacker-entering-data-center-24036/">enlace</a>.
+                    <br>Su lincencia permite el uso personal, pero no comercial.
+                    
+                    <br>La música de fondo ha sido extraída de Soundcloud. El nombre del tema es "Thanks"
+                    <br>Puedes encontrarla a través del siguiente <a href="https://soundcloud.com/tree-star-moon/sets/cc0-public-domain-music">enlace</a>.
+                    <br>"Tree Star Moon", el creador de la canción, la distribuye bajo la licencia CC0, que permite su uso incluso con fines comerciales.
                 </p>
                 <button id="hideWiki-btn" onclick="hideWiki()">x</button>
             </div>
+            <div id="camera" class="hidden">
+                <video id="camera-video" width="640" height="360" autoplay>
+                    <source src="static/hacker-enter.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video> 
+                <button id="hideCamera-btn" onclick="hideCamera()">x</button>
+            </div>
         </main>
-            <footer>
-            <button id="camera-btn">Camera</button>
+            
+        <footer>
+            <button id="camera-btn" onclick="showCamera()">Camera</button>
             <button id="wiki-btn" onclick="showWiki()">Wiki</button>
         </footer>
+        <audio id="hacker-audio" loop muted>
+            <source src="static/Thanks.mp3" type="audio/mp3">
+            <source src="static/Thanks.oga" type="audio/oga">
+            Your browser does not support the audio tag.
+          </audio> 
     </body>
+    <script src="js/script.js"></script> 
 </html>

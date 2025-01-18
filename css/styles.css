@@ -12,7 +12,7 @@ p {
     white-space: pre;
 }
 body {
-    background-image: url('../static/kali-linux-wallpaper-v1.png');
+    background-image: url('../static/kali-linux-wallpaper-v1.jpg');
     background-size: 100% 100%; 
     color:var(--hacker-text-color);
     font-weight: 500;
@@ -30,11 +30,10 @@ main {
     padding: 25px;
 }
 .shown {
-    height: 100%;
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    justify-self: center;
 }
 
 .hidden {
@@ -50,7 +49,23 @@ button {
     padding: 5px 8px 5px 8px ;
 }
 
-#hideWiki-btn {
+#wiki, #camera {
+    background-color: #00000090;
+    border-radius: 25px;
+    margin: auto 0 auto 0;
+    position: absolute;
+    padding: 10px 35px 10px 35px;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: fit-content;
+    height: fit-content;
+    z-index: 10;
+}
+
+a {
+    color:#3f81d8;
+}
+
+#hideWiki-btn, #hideCamera-btn {
     background-color: transparent;
     border: none;
     color:var(--hacker-text-color);
